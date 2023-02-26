@@ -1,0 +1,20 @@
+Write a recursive function to convert a given string into the number it represents. 
+That is input will be a numeric string that contains only numbers, you need to convert the string into corresponding integer and return the answer.
+
+CODE: 
+public class solution {
+
+	public static int convertStringToInt(String input){
+	   return  helper(input,0,input.length()-1,0);
+
+	}
+
+	public static int helper(String s, int i, int n,int ans){
+		if(i==s.length()){
+			return ans;
+		}
+		int value = s.charAt(i) - '0';
+		ans = ans + value * (int) (Math.pow(10, n));
+		return helper(s, i + 1, n - 1, ans);
+	}
+}
