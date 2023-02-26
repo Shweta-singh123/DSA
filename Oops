@@ -1,0 +1,456 @@
+MCQ based questions. 
+Note: "*" denotes correct answer
+
+Que 1: Select the correct statement(s).
+Options: This problem may have one or more correct answers
+
+* OOPS refers to using objects in programming 
+* A class is a user defined blueprint from which objects are created. 
+Object of same class have different properties.
+* Object is an instance of a class. 
+
+Que 2: Which of the following method can be used to create an object of student class?
+Options:
+
+Student s1=new Student;
+Student s1;
+* Student s1=new Student();
+Student s1=" ";
+
+Que 3: What would be the output of the following code?
+class Student{
+    int roll_number;
+    String name;
+}
+class DPS {
+    public static void main (String[] args) {
+        Student s=new Student();
+        s.roll_number=5;
+        s.name="Rohit";
+        System.out.println(s.roll_number+" "+s.name);
+    }
+}
+
+Options
+* 5 Rohit
+Rohit 5
+error
+
+Que 4: Which line of the following code would give an error?
+class Car{
+    int year;
+    String company_name;
+}
+class New_Car {
+    public static void main (String[] args) {
+        Car c=new Car();        //Line 1
+        year=2018;              //Line 2
+        c.company_name="Honda"; //Line 3
+    }
+}
+
+Options
+
+Line 1
+* Line 2
+Line 3
+No error
+
+Que 5: What can be the possible output of the following code?
+
+class Student{
+    int roll_no;
+    String name;
+}
+class Test {
+        public static void main (String[] args) {
+        Student s=new Student();
+        System.out.println(s);
+    }
+}
+
+Options
+547a85bc
+[I@232204a1
+* Student@232204a1
+Student@4578ig32
+
+Que 6: Which access modifier can be used to access a variable outside the class and within the package?
+
+Options
+* Public 
+Private
+* Default 
+
+Que 7: Would the following code generate any error?
+class Student{
+    private int roll_no;
+    String name;
+}
+class DPS {
+        public static void main (String[] args) {
+        Student s=new Student();
+        s.name="Neha";
+        System.out.println(s.name);
+    }
+}
+
+Options
+
+Yes
+* No
+
+
+Que8: What would be the output of the following code?
+class Mobile{
+    private int year;
+    String company_name;
+}
+class new_device {
+    public static void main (String[] args) {
+        Mobile c=new Mobile();        
+        c.year=2018;              
+        c.company_name="Apple";
+        System.out.println(c.company_name); 
+    }
+}
+
+Options
+Apple
+No output
+* Error
+
+Que 9:What will be the output of the following code?(Considering both the classes are in the same package).
+class Employee{
+    String name;
+        private int emp_id;
+    public void set_id(int id)
+    {
+        if(id>0)
+        emp_id=id;
+        else 
+        System.out.println("Invalid id");
+    }
+    public int get_id()
+    {
+        return emp_id;
+    }
+}
+class office {
+    public static void main (String[] args) {
+        Employee e=new Employee();  
+        e.set_id(10);
+        System.out.println(e.get_id());
+    }
+}
+
+
+Options
+* 10
+0
+error
+
+
+Que 10: Fill the output of the following code.(Considering both the classes are in the same package.)
+class Employee{
+    String name;
+        private int emp_id;
+    public void set_id(int id)
+    {
+        if(id>0)
+        emp_id=id;
+        else 
+        System.out.println("Invalid id");
+    }
+    public int get_id()
+    {
+        return emp_id;
+    }
+    public void set_name(String n)
+    {
+        name=n;
+    }
+}
+class Office {
+    public static void main (String[] args) {
+        Employee e=new Employee();  
+        e.set_id(10);
+        e.set_name("Naman");
+        System.out.println(e.get_id()+" "+e.name);
+    }
+}
+
+Answer: 10 Naman
+
+Que 11: What will be the output of the following code?
+class Test 
+    { 
+        int a; 
+        int b; 
+
+    public void set(int a, int b) 
+    {  
+        b = a; 
+        this.b = b; 
+    } 
+
+    void display() 
+    { 
+        System.out.println("a=" + a + " b=" + b); 
+    } 
+}
+class T{
+    public static void main(String[] args) 
+    { 
+        Test object = new Test();
+        object.set(10,20);
+        object.display(); 
+    } 
+} 
+
+
+Answer: a=0 b=10
+
+Que 12: Which keyword is a reference variable that refers to the current object?
+
+Options
+object
+* this
+class
+private
+
+Que 13: What will be the output of the following code?
+class Ninja 
+{ 
+    Ninja(String name) 
+    { 
+        System.out.println("Constructor one " + name); 
+    } 
+    Ninja(String name, int age) 
+    { 
+        System.out.println("Constructor two " + name + " "+ age); 
+    } 
+    Ninja(long id) 
+    { 
+        System.out.println("Constructor three " + id); 
+    } 
+} 
+
+class Student 
+{ 
+    public static void main(String[] args) 
+    {  
+        Ninja geek3 = new Ninja("Dharmesh", 26); 
+    } 
+} 
+
+
+Options
+
+Constructor one Dharmesh
+* Constructor two Dharmesh 26
+Constructor three 26
+
+
+Que 14: What will be the output of the following code?
+class Test 
+{ 
+    int a; 
+    int b; 
+    Test() 
+    {   
+        this(10, 20);   
+        System.out.print("constructor one "); 
+    } 
+    Test(int a, int b) 
+    { 
+        this.a = a; 
+        this.b = b; 
+        System.out.print("constructor two "); 
+    } 
+}
+class new_test{
+    public static void main(String[] args) 
+    { 
+        Test object = new Test(); 
+    } 
+} 
+
+Options
+
+constructor one
+constructor two
+* constructor two constructor one
+constructor one constructor two
+
+
+Que 15: Select the correct statement(s) about final keyword?
+
+Options
+
+* Final variable can be initialized only once and cannot be modified further. 
+We can initialize final variable inside a function.
+* We can initialize final variable inside constructor. 
+* Final keyword is a non-access modifier. 
+
+Que 16: What will be the output of the following code?
+class Pen{
+    final int price = 15;
+}
+
+public class MCQs {
+    public static void main(String[] args) {
+        Pen p = new Pen();
+        p.price = 20;
+        System.out.println(p.price);
+    }   
+}  
+
+Options
+15
+20
+* Error
+
+
+Que 17: What will be the output of the following code?
+class Car{
+    static int year;
+    String company_name;
+}
+class new_Car {
+    public static void main (String[] args) {
+        Car c=new Car();        
+        Car.year=2018;              
+        c.company_name="KIA";
+        Car d=new Car();
+        System.out.print(d.year);
+    }
+}
+
+Options
+0
+Error
+* 2018
+
+Que 18: Which line of the following code would generate an error?
+class Test{
+    static int marks;
+    void set_marks(int marks)
+    {
+        this.marks=marks;               //Line 1
+    }
+}
+class MCQ {
+    public static void main (String[] args) {
+        Test t=new Test();              
+        t.set_marks(78);                //Line 2
+        System.out.print(Test.marks);   //Line 3
+    }
+}
+
+Options
+Line 1
+Line 2
+Line 3
+* No error
+
+
+Que 19: What would be the output of the following code?
+class Test 
+{ 
+    static int a = 10; 
+    static int b; 
+    static void fun(){ 
+        b = a * 4; 
+    } 
+} 
+class MCQ{
+   public static void main(String[] args) 
+    { 
+      Test t=new Test();
+      t.fun();
+      System.out.print(Test.a+Test.b);
+    } 
+} 
+
+Options
+10
+20
+* 50
+Error
+
+
+Que 20: Which of the following line(s)would produce an error?
+class Test 
+{
+    static int a = 10; 
+    int b = 20; 
+    static void fun1() 
+    { 
+        a = 20;                             //Line 1
+        b = 10;                             //Line 2
+        fun2();                             //Line 3
+        System.out.print(this.b);           //Line 4
+    } 
+    void fun2() 
+    {     
+        System.out.println("from m2"); 
+    }
+}
+class MCQ{    
+    public static void main(String[] args) 
+    { 
+        Test.fun1(); 
+    } 
+} 
+
+
+Options: This problem may have one or more correct answers
+Line 1
+* Line 2 
+* Line 3 
+* Line 4 
+
+
+Que 21: Complex Number Problem
+A ComplexNumber class contains two data members : one is the real part (R) and the other is imaginary (I) (both integers).
+Implement the Complex numbers class that contains following functions -
+1. constructor: You need to create the appropriate constructor.
+2. plus: This function adds two given complex numbers and updates the first complex number.
+3. multiply: This function multiplies two given complex numbers and updates the first complex number.
+4. print : This function prints the given complex number in the following format :
+
+CODE: 
+public class ComplexNumbers {
+	// Complete this class
+
+      int real;
+      int imaginary;
+
+      	ComplexNumbers(int real,int imaginary){
+          this.real=real;
+          this.imaginary=imaginary;
+      }
+
+      
+
+      public void plus( ComplexNumbers c2){
+          this.real = real+c2.real;
+          this.imaginary=imaginary+c2.imaginary;
+      }
+      
+      public void multiply(ComplexNumbers c2){
+		  int temp =real;
+          this.real = (real*(c2.real))-(imaginary*(c2.imaginary));
+          this.imaginary = (temp * (c2.imaginary))+(imaginary* c2.real);
+      }
+
+	  	public void print() {
+			if (imaginary > 0)
+				System.out.println(real + " + "+ "i" + imaginary);
+			else {
+				System.out.println(real + " - " + "i" + imaginary * -1);
+			}
+		}
+
+    }	
