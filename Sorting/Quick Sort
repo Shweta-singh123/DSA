@@ -1,0 +1,50 @@
+Quick Sort - Problem Statement
+Sort an array A using Quick Sort.
+Change in the input array itself. So no need to return or print anything.
+
+CODE:
+
+public class Solution {
+	
+	public static void quickSort(int[] input) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * No need to print or return the output.
+		 * Taking input and printing output is handled automatically.
+		 */
+
+		 helper(input, 0, input.length-1);
+		
+	}
+
+	public static void helper(int[] input, int si, int ei){
+		if(si<ei){
+			int pidx = partition(input, si, ei);
+
+			helper(input,si,pidx-1);
+			helper(input, pidx+1, ei);
+		}
+	}
+	public static int partition(int[] input, int si, int ei){
+		int pivot = input[ei];
+		int i=si-1;
+
+		for(int j=si;j<ei;j++){
+			if(input[j]<pivot){
+				i++;
+				int temp = input[i];
+				input[i]=input[j];
+				input[j]=temp;
+			}
+		}
+		i++;
+		int temp=input[i];
+		input[i]=pivot;
+		input[ei]=temp;
+		return i;
+
+	   }
+
+	}
+	
