@@ -1,0 +1,40 @@
+Remove X
+Given a string, compute recursively a new string where all 'x' chars have been removed.
+
+CODE: 
+public class solution {
+
+	// Return the changed string
+	/*
+	public static String removeX(String str){
+		String newStr="";
+           return helper(str, newStr);
+	}
+	
+	public static String helper(String str, String newStr){
+		if(str.length()==0)
+	{
+		return newStr;
+	}if(str.charAt(0)=='x')
+	{
+		return helper(str.substring(1), newStr);
+	}else
+	{
+		return helper(str.substring(1), newStr + str.charAt(0));
+	}
+	}
+	*/
+
+	public static String removeX(String str) {
+		if (str.length() == 0) {
+			return str;
+		}
+		String newStr = removeX(str.substring(1));
+		if (str.charAt(0) == 'x') {
+
+			return newStr;
+		} else {
+			return str.charAt(0) + newStr;
+		}
+	}
+}
