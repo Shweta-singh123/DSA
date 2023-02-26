@@ -1,0 +1,142 @@
+/* MCQ based on Time complexity */  
+
+Note: "*" denotes correct option
+
+Que 1: Which complexity of an algorithm quantifies the amount of memory taken by an algorithm.
+Options: This problem has only one correct answer
+Time complexity
+* Space complexity
+
+Que 2: What are the number of operations for the following function?
+public static void func(int n)
+{
+    int sum=0;
+    for(int i=2;i<n;i+=2)
+        sum+=i;
+    System.out.println(sum);
+}
+
+Options
+This problem has only one correct answer
+* k1+k2(n)
+k1+k2
+k1+k2(n^2)
+k1+k2(logn)
+
+Que 3: What are the number of operations for the following function?
+public static void func(int n)
+{
+    int sum=0;
+    for(int i=1;i<n*n;i++)
+        sum+=i;
+    System.out.println(sum);
+}
+
+Options: This problem has only one correct answer
+k1+k2(n)
+k1+k2(logn)
+* k1+k2(n^2)
+k1(n)+k2(logn)
+
+Que 4: What will be the Time Complexity of following code in terms of ‘n’ ?
+public static void func(int n)
+{
+    int sum=0;
+    for(int i=1;i<n;i++)
+        {
+            for(;i<n*n;i++)
+            {
+                sum+=i;
+            }
+        }
+    System.out.println(sum);
+}
+
+Options:  This problem has only one correct answer
+O(n)
+* O(n^2)
+O(n^3)
+O(n^4)
+
+
+Que 5: What will be the Time Complexity of following code in terms of ‘n’ ?
+public static void func(int n)
+{
+    int sum=0;
+    for(int i=1;i<n;i++)
+        {
+            for(int j=1;j<n*n;j++)
+            {
+                sum+=i;
+            }
+        }
+    System.out.println(sum);
+}
+
+
+Options: This problem has only one correct answer
+O(n)
+O(n^2)
+* O(n^3)
+O(n^4)
+
+
+Que 6: Choose the correct option.
+A) Linear Search                     1. O(logn)
+B) Bubble sort                         2. O(n)
+C) Binary Search                    3. O(n^2)
+
+Options:  This problem has only one correct answer
+A->1 B->3 C->2
+A->3 B->2 C->1
+A->3 B->1 C->2
+A->2 B->3 C->1
+
+Que 7: Time complexity of a code
+Send Feedback
+What will be the Time Complexity of following code in terms of ‘n’ ?
+public static void func(int n)
+{
+    int sum=0;
+    for(int i=1;i<n;i++)
+        {
+            for(int j=1;j<=i;j++)
+            {
+                sum+=i;
+            }
+        }
+    System.out.println(sum);
+}
+
+Options: This problem has only one correct answer
+O(n)
+* O(n^2)
+O(nlogn)
+O(n^3)
+
+
+Que 8: What will be the Time Complexity of following code in terms of ‘n’ ?
+public static void func(int n)
+{
+    int sum=0;
+    for(int i=1;i<n;i*=2)
+        {
+                sum+=i;  
+        }
+    System.out.println(sum);
+}
+
+Options
+* O(log n(base 2))
+O(n)
+O(ln(n))
+O(n^2)
+
+Que 9: What is the time complexity for merging two sorted arrays of size of arrays are n and m.
+Options
+
+O(n*m)
+* O(n+m)
+O(n)
+O(m)
+
