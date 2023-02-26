@@ -1,0 +1,19 @@
+Check whether a given String S is a palindrome using recursion. Return true or false.
+
+CODE:
+
+public class solution {
+
+	public static boolean isStringPalindrome(String input) {
+		return helper( input,0, input.length()-1);
+	}
+	public static boolean helper(String str, int s, int e){
+		if(s>=e){
+			return true;
+		}
+		if(str.charAt(s)==str.charAt(e)){
+			return helper(str,s+1,e-1);
+		}
+		return false;
+	}
+}
