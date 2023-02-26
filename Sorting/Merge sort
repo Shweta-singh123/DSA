@@ -1,0 +1,51 @@
+Merge Sort - Problem Statement
+Sort an array A using Merge Sort.
+Change in the input array itself. So no need to return or print anything.
+
+CODE:
+
+public class solution {
+
+	public static void mergeSort(int[] input) {
+
+		divide(input, 0, input.length - 1);
+
+	}
+
+	public static void divide(int[] input, int si, int ei) {
+		if (si >= ei) {
+			return;
+		}
+		int mid = si + (ei - si) / 2;
+		divide(input, si, mid);
+		divide(input, mid + 1, ei);
+		conquer(input, si, mid, ei);
+	}
+
+	public static void conquer(int[] input, int si, int mid, int ei) {
+		int[] temp = new int[ei - si + 1];
+		int idx1 = si;
+		int idx2 = mid + 1;
+		int i = 0;
+
+		while (idx1 <= mid && idx2 <= ei) {
+			if (input[idx1] <= input[idx2]) {
+				temp[i++] = input[idx1++];
+			} else {
+				temp[i++] = input[idx2++];
+			}
+		}
+
+		while (idx1 <= mid) {
+			temp[i++] = input[idx1++];
+		}
+
+		while (idx2 <= ei) {
+			temp[i++] = input[idx2++];
+		}
+
+		for (int j = 0, k = si; j < temp.length; j++, k++) {
+			input[k] = temp[j];
+		}
+	}
+}
