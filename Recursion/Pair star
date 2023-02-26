@@ -21,3 +21,33 @@ public class solution {
 		return helper(s,index+1,str+s.charAt(index));
 	}
 }
+
+
+Other way
+
+public class solution {
+
+	// Return the updated string
+	public static String addStars(String s) {
+		// Write your code here
+		return helper(s,"",0);
+
+	}
+
+	public static String helper(String str, String newStr,int i){
+		
+		if(i==str.length()-1){
+			return newStr+str.charAt(str.length()-1);
+		}
+
+		if(str.charAt(i) != str.charAt(i+1)){
+			newStr=newStr+str.charAt(i);
+			
+		}
+		else{
+            newStr=newStr+str.charAt(i)+"*";
+		}
+		return helper(str, newStr, i + 1);
+	}
+}
+
