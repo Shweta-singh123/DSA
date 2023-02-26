@@ -1,0 +1,43 @@
+Given k, find the geometric sum i.e.
+1 + 1/2 + 1/4 + 1/8 + ... + 1/(2^k) 
+
+CODE: 
+
+	public static double findGeometricSum(int k) {
+		return gpHelper(1, 0.5f, 0, k, 0);
+	}
+
+	public static double gpHelper(double a, float r, int i, int k, double sum) {
+		if (i > k) {
+			return sum;
+		}
+		sum = sum + a;
+		a = a * r;
+		return gpHelper(a, r, i + 1, k, sum);
+	}
+}
+
+
+// Other way 
+
+public class solution {
+public static double sum=0.0;
+	public static double findGeometricSum(int k){
+		if(k == -1){
+			return sum;
+		}
+		return sum + 1/powerOf(2,k)+ findGeometricSum(k-1);
+	}
+
+
+		public static double powerOf(int number, int power){
+			if(power == 0){
+				return 1;
+			}
+			if(power %2 != 0){
+			return number * powerOf(number,power/2)* powerOf(number,power/2);
+			}else{
+				 return powerOf(number,power/2)* powerOf(number,power/2);
+			}
+		}
+	}
