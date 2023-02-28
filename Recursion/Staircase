@@ -1,28 +1,19 @@
-For a given array/list(ARR) of size 'N,' find and return the 'Equilibrium Index' of the array/list.
-Equilibrium Index of an array/list is an index 'i' such that the sum of elements at indices [0 to (i - 1)] is equal to the sum of elements at indices [(i + 1) to (N-1)]. 
-One thing to note here is, the item at the index 'i' is not included in either part.
-If more than one equilibrium indices are present, then the index appearing first in left to right fashion should be returned. 
-Negative one(-1) if no such index is present.
+A child is running up a staircase with N steps, and can hop either 1 step, 2 steps or 3 steps at a time. 
+Implement a method to count how many possible ways the child can run up to the stairs. You need to return number of possible ways W.
+
 
 
 CODE:
 
 public class Solution {
-
-	public static int arrayEquilibriumIndex(int[] arr){ 
-		int totalSum = 0, leftSum = 0, rightSum = 0;
-		
-		for(int x : arr){
-			totalSum += x;
+     public static int staircase(int n){
+		if(n == 1){
+			return 1;
+		}else if (n == 2){
+			return 2;
+		}else if(n == 3){
+			return 4;
 		}
-		for(int i = 0; i < arr.length; i++){
-			rightSum = totalSum - leftSum - arr[i];
-
-			if(rightSum == leftSum){
-				return i;
-			}
-			leftSum += arr[i];
-		}
-		return -1;
-		}
+		return staircase(n-1)+staircase(n-2)+staircase(n-3);
+	}
 }
