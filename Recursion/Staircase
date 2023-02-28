@@ -1,0 +1,28 @@
+For a given array/list(ARR) of size 'N,' find and return the 'Equilibrium Index' of the array/list.
+Equilibrium Index of an array/list is an index 'i' such that the sum of elements at indices [0 to (i - 1)] is equal to the sum of elements at indices [(i + 1) to (N-1)]. 
+One thing to note here is, the item at the index 'i' is not included in either part.
+If more than one equilibrium indices are present, then the index appearing first in left to right fashion should be returned. 
+Negative one(-1) if no such index is present.
+
+
+CODE:
+
+public class Solution {
+
+	public static int arrayEquilibriumIndex(int[] arr){ 
+		int totalSum = 0, leftSum = 0, rightSum = 0;
+		
+		for(int x : arr){
+			totalSum += x;
+		}
+		for(int i = 0; i < arr.length; i++){
+			rightSum = totalSum - leftSum - arr[i];
+
+			if(rightSum == leftSum){
+				return i;
+			}
+			leftSum += arr[i];
+		}
+		return -1;
+		}
+}
