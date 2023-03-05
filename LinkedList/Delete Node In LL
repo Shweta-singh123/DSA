@@ -1,0 +1,57 @@
+You have been given a linked list of integers. Your task is to write a function that deletes a node from a given position, 'POS'.
+Note :  Assume that the Indexing for the linked list always starts from 0.
+If the position is greater than or equal to the length of the linked list, you should return the same linked list without any change.
+
+CODE:
+
+class LinkedListNode<T> {
+    	T data;
+    	LinkedListNode<T> next;
+    
+    	public LinkedListNode(T data) {
+        	this.data = data;
+    	}
+	}
+
+
+public class Solution {
+
+	public static int length(LinkedListNode<Integer> head){
+
+		LinkedListNode temp = head;
+        int count=0;
+
+        while(temp  != null){
+            count++;
+            temp=temp.next;
+        }
+        return count;
+	}
+	public static LinkedListNode<Integer> deleteNode(LinkedListNode<Integer> head, int pos) {
+	     LinkedListNode temp = head;
+		 int i=0;
+		 
+		 if(length(head)==0){
+			 return head;
+		 }
+
+		 if(pos ==0){
+			temp = head.next;		 
+			 head=temp;
+			 return head;
+		 }
+
+		 if(pos >= length(head)){
+			 return head;
+		 }
+
+		 while(i < pos-1){
+			 i++;
+			 temp=temp.next;
+		 }
+		 if(temp.next != null){
+			 temp.next = temp.next.next;
+		 }
+		 return head;
+	}
+}
