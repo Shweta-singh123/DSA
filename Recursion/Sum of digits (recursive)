@@ -1,0 +1,17 @@
+Question Write a recursive function that returns the sum of the digits of a given integer.
+
+
+CODE:
+
+public class solution {
+
+	public static int sumOfDigits(int input){
+		return helper(input, 0);
+	}
+	public static int helper(int input, int sum){
+		if(input == 0){
+			return sum;
+		}
+		return helper(input/10, sum + input%10);
+	}
+}
