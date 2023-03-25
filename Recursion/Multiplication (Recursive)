@@ -1,0 +1,14 @@
+Question Given two integers M & N, calculate and return their multiplication using recursion. You can only use subtraction and addition for your calculation. 
+No other operators are allowed.
+
+CODE;
+
+public class solution {
+
+	static int sum = 0;
+	public static int multiplyTwoIntegers(int m, int n){
+	if(n==0)return sum;
+
+	return sum+m+multiplyTwoIntegers(m,n-1);
+}
+}
