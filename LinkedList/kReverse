@@ -1,0 +1,42 @@
+Given a singly linked list of integers, reverse the nodes of the linked list 'k' at a time and return its modified list.
+ 'k' is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of 'k,'
+ then left-out nodes, in the end, should be reversed as well.
+ 
+ CODE:
+ 
+   class LinkedListNode<T> {
+        T data;
+        LinkedListNode<T> next;
+    
+        public LinkedListNode(T data) {
+            this.data = data;
+        }
+    }
+    
+    public class Solution {
+
+	 public static LinkedListNode<Integer> kReverse(LinkedListNode<Integer> head, int k) {
+         if(head==null || k==0){
+             return head;
+         }
+        LinkedListNode prev=null;
+        LinkedListNode curr=head;
+        LinkedListNode nextNode;
+        int count=0;
+
+        while(curr!=null && count!=k ){
+            nextNode=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=nextNode;
+            count++;
+        }
+
+        if(curr!=null){
+           head.next= kReverse(curr,k);
+        }
+        return prev;
+    }
+
+}
+ 
