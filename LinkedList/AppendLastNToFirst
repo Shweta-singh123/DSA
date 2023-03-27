@@ -1,0 +1,81 @@
+You have been given a singly linked list of integers along with an integer 'N'. 
+Write a function to append the last 'N' nodes towards the front of the singly linked list and returns the new head to the list.
+
+CODE:
+
+class LinkedListNode<T> {
+    	T data;
+    	LinkedListNode<T> next;
+    
+    	public LinkedListNode(T data) {
+        	this.data = data;
+    	}
+	}
+
+public class Solution {
+	public static LinkedListNode<Integer> appendLastNToFirst(LinkedListNode<Integer> head, int n) {
+
+		if(head==null){
+			return head;
+		}
+
+       LinkedListNode<Integer> temp = head;
+        LinkedListNode<Integer> temp1 = temp;
+        int i=0;
+        int N=0;
+        while(temp.next != null){
+            N++;
+            temp = temp.next;
+        }
+
+        while (i<N-n && temp1.next != null){
+            i++;
+            temp1=temp1.next;
+        }
+        temp.next=head;
+        head=temp1.next;
+        temp1.next=null;
+
+        return head;
+	}
+}
+
+or
+public class Solution {
+	public static LinkedListNode<Integer> appendLastNToFirst(LinkedListNode<Integer> head, int n) {
+
+		if(head==null){
+			return head;
+		}
+ static int count = 0;
+// static int size = 0;
+// 	public static LinkedListNode<Integer> appendLastNToFirst(LinkedListNode<Integer> head, int n) {
+// 		if(n == 0){
+// 			return head;
+// 		}
+// 		LinkedListNode<Integer> temp1 = head;
+// 		while(temp1 != null){
+// 			size++;
+// 			temp1 = temp1.next;
+// 		}
+// 		if(n > size){
+// 			return head;
+// 		}
+
+// 		LinkedListNode<Integer> temp = head;
+// 		LinkedListNode<Integer> pre = null;
+// 		LinkedListNode<Integer> newHead = null;
+
+// 		while(temp != null && temp.next != null){
+// 			if(count < size-n){
+// 				count++;
+// 			pre = temp;
+// 			newHead = pre.next;
+// 			}
+			
+// 			temp = temp .next;
+// 		}
+// 		temp.next = head;
+// 		pre.next = null;
+// 		return newHead;
+// 	}
