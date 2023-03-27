@@ -1,0 +1,44 @@
+For a given singly linked list of integers, arrange the elements such that all the even numbers are placed after the odd numbers. 
+The relative order of the odd and even terms should remain unchanged.
+
+CODE:
+
+ class LinkedListNode<T> {
+        T data;
+        LinkedListNode<T> next;
+    
+        public LinkedListNode(T data) {
+            this.data = data;
+        }
+    }
+
+public class Solution {
+
+	public static LinkedListNode<Integer> evenAfterOdd(LinkedListNode<Integer> head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        LinkedListNode<Integer> temp = head;
+
+		LinkedListNode<Integer> odd = new LinkedListNode<Integer>(-1);
+        LinkedListNode<Integer> even = new LinkedListNode<Integer>(-1);
+
+        LinkedListNode<Integer> oddPointer = odd;
+        LinkedListNode<Integer> evenPointer = even;
+
+        while(temp != null){
+            if(temp.data %2 != 0){
+                odd.next = temp;
+                odd = odd.next;
+            }
+           else{
+                even.next = temp;
+                even = even.next;
+            }
+            temp = temp.next;
+        }
+        odd.next = evenPointer.next;
+        return oddPointer.next;
+	}
+}
