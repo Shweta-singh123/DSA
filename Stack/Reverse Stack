@@ -1,0 +1,27 @@
+You have been given two stacks that can store integers as the data. Out of the two given stacks, one is populated and the other one is empty. 
+You are required to write a function that reverses the populated stack using the one which is empty.
+
+
+CODE:
+
+import java.util.*;
+public class Solution {
+
+	public static void reverseStack(Stack<Integer> input, Stack<Integer> extra) {
+		
+		int n=input.size();
+
+		for(int i=0;i<n;i++){
+			int x=input.pop();
+
+			transfer(input,extra,n-1-i);
+			input.push(x);
+			transfer(extra,input,n-i-1);
+		}
+	}
+	public static void transfer(Stack<Integer> src, Stack<Integer> des, int n){
+		for(int i=0;i<n;i++){
+			des.push(src.pop());
+		}
+	}
+}
