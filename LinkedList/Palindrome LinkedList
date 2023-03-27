@@ -1,0 +1,54 @@
+You have been given a head to a singly linked list of integers. Write a function check to whether the list given is a 'Palindrome' or not.
+
+
+CODE:
+
+class LinkedListNode<T> {
+    	T data;
+    	LinkedListNode<T> next;
+    
+    	public LinkedListNode(T data) {
+        	this.data = data;
+    	}
+	}
+  
+  
+  public class Solution {
+	public static boolean isPalindrome(LinkedListNode<Integer> head) {
+		if(head == null || head.next == null){
+			return true;
+		}
+		LinkedListNode<Integer> temp = head;
+		LinkedListNode<Integer> mid = midE(head);
+		LinkedListNode<Integer> last = reverse(mid.next);
+
+		while(last != null){
+			if(temp.data != last.data){
+				return false;
+			}
+			temp = temp.next;
+			last = last.next;
+		}
+		return true;
+	}
+	public static  LinkedListNode<Integer> reverse( LinkedListNode<Integer> head){
+
+		if(head == null || head.next == null){
+			return head;
+		}
+		 LinkedListNode<Integer> last =  reverse(head.next);
+		 head.next.next = head;
+		 head.next = null;
+		 return last;
+	}
+		public static LinkedListNode<Integer> midE(LinkedListNode<Integer> head){
+			LinkedListNode<Integer> slow = head;
+			LinkedListNode<Integer> fast = head.next;
+
+			while(fast != null && fast.next != null){
+				slow = slow.next;
+				fast = fast.next.next;
+			}
+			return slow;
+		}
+}
