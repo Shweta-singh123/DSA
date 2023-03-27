@@ -1,0 +1,83 @@
+ Given a singly linked list of integers, sort it using 'Merge Sort.'
+ 
+ class LinkedListNode<T> {
+        T data;
+        LinkedListNode<T> next;
+    
+        public LinkedListNode(T data) {
+            this.data = data;
+        }
+    }
+    
+    public class Solution {
+
+	public static LinkedListNode<Integer> mergeSort(LinkedListNode<Integer> head){
+        if(head==null || head.next==null){
+            return head;
+        }
+        LinkedListNode<Integer> midNode= findMid(head);
+
+        LinkedListNode<Integer> left=head;
+        LinkedListNode<Integer> right= midNode.next;
+        midNode.next=null;
+
+        //Recursive calls to sort both parts
+        left=mergeSort(left);
+        right=mergeSort(right);
+
+        LinkedListNode<Integer> ansList=merge(left,right);
+        return ansList;
+    }
+    public static LinkedListNode<Integer> findMid(LinkedListNode<Integer> head){
+        if(head==null || head.next==null){
+            return head;
+        }
+        LinkedListNode<Integer> slow=head;
+        LinkedListNode<Integer> fast=head.next;
+
+        while(fast!=null && fast.next!=null){
+
+                slow=slow.next;
+                fast=fast.next.next;
+
+        }
+        return slow;
+    }
+
+    public static LinkedListNode<Integer> merge(LinkedListNode<Integer> left, LinkedListNode<Integer> right){
+        if(left==null){
+            return right;
+        }
+        if(right==null){
+            return left;
+        }
+        LinkedListNode<Integer> ansList=new LinkedListNode<>(-1);
+        LinkedListNode<Integer> temp=ansList;
+
+        while(left!=null && right != null){
+            if(left.data<right.data){
+                temp.next=left;
+                left=left.next;
+                temp=temp.next;
+            }
+            else{
+                temp.next=right;
+                right=right.next;
+                temp=temp.next;
+            }
+        }
+         while(left!=null){
+             temp.next=left;
+             left=left.next;
+             temp=temp.next;
+         }
+
+         while(right!=null){
+             temp.next=right;
+             right=right.next;
+             temp=temp.next;
+         }
+         return ansList.next;
+    }
+
+}
