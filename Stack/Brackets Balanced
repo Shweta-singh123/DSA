@@ -1,0 +1,37 @@
+For a given a string expression containing only round brackets or parentheses, check if they are balanced or not.
+Brackets are said to be balanced if the bracket which opens last, closes first.
+
+CODE:
+
+import java.util.*;
+public class Solution {
+
+    public static boolean isBalanced(String expression) {
+        Stack<Character> stack=new Stack<>();
+
+        for(char ch: expression.toCharArray()){
+            if(ch=='(' || ch=='{' || ch=='{'){
+                stack.push(ch);
+            }
+            else{
+                if(ch==')'){
+                    if(stack.isEmpty() || stack.pop()!='(' ) {
+                        return false;
+                    }
+                }
+                    if(ch=='}'){
+                        if(stack.isEmpty() || stack.pop()!='{' ) {
+                        return false;
+                    }
+                }
+
+                if(ch==']'){
+                    if(stack.isEmpty() || stack.pop()!='['){
+                        return false;
+                    }
+                }
+            }
+         }
+         return stack.isEmpty();
+        }
+    }
