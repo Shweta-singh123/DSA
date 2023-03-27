@@ -1,0 +1,61 @@
+You have been given a singly linked list of integers along with two integers, 'i,' and 'j.' Swap the nodes that are present at the 'i-th' and 'j-th' positions.
+
+CODE:
+
+class LinkedListNode<T> {
+        T data;
+        LinkedListNode<T> next;
+    
+        public LinkedListNode(T data) {
+            this.data = data;
+        }
+    }
+
+
+public class Solution {
+
+	public static LinkedListNode<Integer> swapNodes(LinkedListNode<Integer> head, int i, int j) {
+        if(i==j || head==null){
+            return head;
+        }
+
+        LinkedListNode<Integer> I=head;
+        LinkedListNode<Integer> prevI=null;
+        int count1=0;
+
+        while(I!=null && count1 !=i ){
+            prevI=I;
+            I=I.next;
+            count1++;
+        }
+
+        LinkedListNode<Integer> J=head;
+        LinkedListNode<Integer> prevJ=null;
+        int count2=0;
+
+        while(J!=null && count2 !=j ){
+            prevJ=J;
+            J=J.next;
+            count2++;
+        }
+
+        if(I==null || J==null){
+            return head;
+        }
+        if(prevI!=null){
+            prevI.next=J;
+        }
+        if(prevJ!=null){
+            prevJ.next=I;
+        }
+        else {
+            head=I;
+        }
+
+        LinkedListNode<Integer> temp = I.next;
+        I.next = J.next;
+        J.next = temp;
+
+        return head;
+    }
+}
