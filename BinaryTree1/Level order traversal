@@ -1,0 +1,67 @@
+Question:
+For a given a Binary Tree of type integer, print it in a level order fashion where each level will be printed on a new line. 
+Elements on every level will be printed in a linear fashion and a single space will separate them.
+
+CODE:
+
+public class Solution {
+
+	public static void printLevelWise(BinaryTreeNode<Integer> root) {
+		//Your code goes here
+		if(root==null || (root.left==null && root.right==null)){
+			return;
+		}
+
+		Queue<BinaryTreeNode<Integer>> queue = new LinkedList<BinaryTreeNode<Integer>>();
+		
+		queue.offer(root);
+
+		while(!queue.isEmpty()){
+			int size=queue.size();
+
+			for(int i=0;i<size;i++){
+				if(queue.peek().left!=null){
+					queue.offer(queue.peek().left);
+				}
+				if(queue.peek().right!=null){
+					queue.offer(queue.peek().right);
+				}
+				System.out.print(queue.poll().data+" ");
+			}
+			System.out.println();
+		}
+	}
+}
+
+//OR 
+
+public class Solution {
+
+	public static void printLevelWise(BinaryTreeNode<Integer> root) {
+		Queue<BinaryTreeNode<Integer>> q = new LinkedList<BinaryTreeNode<Integer>>();
+
+		q.offer(root);
+		 q.offer(null);
+		 
+		 while(!q.isEmpty()){
+			 BinaryTreeNode<Integer> cur = q.poll();
+
+			 if( cur == null){
+				 System.out.println();
+				 if(q.isEmpty()){
+					 break;
+				 }else{
+					 q.offer(null);
+				 }
+				}else{
+				 System.out.print(cur.data + " ");
+				 if(cur.left != null){
+					 q.add(cur.left);
+				 }
+				 if(cur.right != null){
+					 q.add(cur.right);
+				 }
+			 }
+		 }
+	}
+}
