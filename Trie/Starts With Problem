@@ -1,0 +1,72 @@
+Question: Create a function to check if a prefix is previously inserted or not
+
+CODE:
+
+class TrieNode{
+    char data;
+    boolean isTerminal;
+    TrieNode[] children;
+
+    TrieNode(char data){
+        this.data=data;
+        this.isTerminal=false;
+        this.children=new TrieNode[26];
+    }
+}
+
+public class StartsWithProblem {
+    private static TrieNode root;
+
+    StartsWithProblem(){
+        root=new TrieNode('\0');
+    }
+
+    public void insert(String word){
+        insertHelper(root,word);
+    }
+    public static void insertHelper(TrieNode root,String word){
+        if(word.length()==0){
+            root.isTerminal=true;
+            return;
+        }
+
+        int index=word.charAt(0)-'a';
+        TrieNode child=root.children[index];
+
+        if(child==null){
+            child=new TrieNode(word.charAt(0));
+            root.children[index]=child;
+        }
+        insertHelper(child,word.substring(1));
+    }
+
+    public static boolean startsWith(String prefix){
+        return startsWithHelper(root,prefix);
+    }
+
+
+    public static boolean startsWithHelper(TrieNode root,String prefix){
+
+        if(prefix.length()==0){
+            return true;
+        }
+        int index=prefix.charAt(0)-'a';
+        TrieNode child = root.children[index];
+
+        if(child==null){
+            return false;
+        }
+        return startsWithHelper(child,prefix.substring(1));
+    }
+
+    public static void main(String[] args) {
+        StartsWithProblem sp = new StartsWithProblem();
+        sp.insert("apple");
+        sp.insert("app");
+        sp.insert("ap");
+        sp.insert("mango");
+        sp.insert("appl");
+
+        System.out.println(startsWith("mat"));
+    }
+}
