@@ -1,0 +1,70 @@
+Inplace Heap Sort
+Send Feedback
+Given an integer array of size N. Sort this array (in decreasing order) using heap sort.
+Note: Space complexity should be O(1).
+Input Format:
+The first line of input contains an integer, that denotes the value of the size of the array or N.
+The following line contains N space separated integers, that denote the value of the elements of the array.
+Output Format :
+The first and only line of output contains array elements after sorting. The elements of the array in the output are separated by single space.
+Constraints :
+1 <= n <= 10^6
+Time Limit: 1 sec
+Sample Input 1:
+6 
+2 6 8 5 4 3
+Sample Output 1:
+8 6 5 4 3 2
+
+
+
+Solution:
+
+public class Solution {
+
+	public static void heapify(int[] A, int index, int  size){
+		int leftChildIndex = (2*index)+1;
+		int rightChildIndex = (2*index)+2;
+
+		int minIndex = index;
+
+		if((leftChildIndex < size) && (A[leftChildIndex] < A[minIndex])){
+			minIndex=leftChildIndex;
+		}
+		if((rightChildIndex < size) && A[rightChildIndex] < A[minIndex]){
+			minIndex=rightChildIndex;
+		}
+		if(minIndex != index){
+
+			int temp1 = A[index];
+			A[index]=A[minIndex];
+			A[minIndex]=temp1;
+
+			heapify(A, minIndex, size);
+		}
+	}
+
+	public static void inplaceHeapSort(int arr[]) {
+		if(arr.length==1 || arr.length==0){
+			return;
+		}
+		// Step 1: To build min heap [as we want array in descending order].
+         int n=arr.length;
+
+		 //Call heapify for non leaf nodes.
+		 for(int i=n/2-1;i>=0;i--){
+			 heapify(arr,i,n);
+		 }
+
+		 // Step 2: swap largest node with the last node.
+
+		 for(int i=n-1;i>0;i--){
+			 int temp =arr[0];
+			 arr[0]=arr[i];
+			 arr[i]=temp;
+
+			 heapify(arr,0,i);
+		 }
+		 
+	}
+}
